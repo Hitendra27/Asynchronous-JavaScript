@@ -1,4 +1,4 @@
-// Promises
+// Asyns Await
 
 const posts = [
     { title: 'Post One', body: 'This is Post One' },
@@ -6,7 +6,6 @@ const posts = [
 ]
 
 function getPosts() {
-
     setTimeout(() => {
         let output = '';
         posts.forEach(post => {
@@ -32,16 +31,11 @@ function createPost(post) {
     });
 }
 
-// createPost({ title: 'Post Three', body: 'This is Post Three'})
-//          .then(getPost)
-//          .catch(err => console.log(err));
+async function init() {
+    await createPost({ title: 'Post Three', body: 'This is Post Three'});
 
-// Promise.all
-const promise1 = Promise.resolve('Hello World');
-const promise2 = 10;
-const promise3 = new Promise((resolve, reject) => 
-       setTimeout(resolve, 2000, 'Goodbye'));
-const promise4 = fetch('https://jsonplaceholder.typicode.com/users').then(res => res.json());   
+    getPosts();
+}
 
+init();
 
-Promise.all([promise1, promise2, promise3, promise4]).then(values => console.log(values));     

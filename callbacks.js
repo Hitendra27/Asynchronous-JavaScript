@@ -5,8 +5,7 @@ const posts = [
     { title: 'Post Two', body: 'This is Post Two' },
 ]
 
-function getPost() {
-
+function getPosts() {
     setTimeout(() => {
         let output = '';
         posts.forEach(post => {
